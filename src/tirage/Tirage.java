@@ -49,6 +49,6 @@ public class Tirage {
     
     public static String nom(int adr) {
         String tableauNom[] = {"Fabien", "Romain", "Floran" , "Guillaume", "Romuald", "Clément", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
-        return String.format("%s", tableauNom[adr-1]);
+        return tableauNom[adr-1];
     }
 }

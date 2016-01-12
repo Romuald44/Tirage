@@ -1,5 +1,6 @@
 package tirage;
-
+import java.io.*;
+import java.util.regex.*;
 /**
  *
  * @author Romuald
@@ -7,16 +8,19 @@ package tirage;
 public class Tirage {
 
     private static Fenetre frame;
-    private static Fichier IOfile;
+    private static Fichier iofile;
     static int animateur;
     static int secretaire;
     static int scribe;
     static int gestionnaire;
-        
+    private static Pattern pattern1;
+    private static Matcher matcher1;
+    private String ligne = "";
+    private static Structure[] tab_file;
+    
     public static void main(String[] args) {
-        //frame = new Fenetre();
-        IOfile = new Fichier();
-        IOfile.test();
+        frame = new Fenetre();
+        iofile = new Fichier();
     }
     
     public static String selection() {
@@ -25,6 +29,7 @@ public class Tirage {
         scribe = random();
         gestionnaire = random();
         
+        iofile.view_tab();
         //System.out.println("Animateur => "+nom(animateur));
         
         while(secretaire == animateur) {

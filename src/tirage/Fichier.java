@@ -1,7 +1,6 @@
 package tirage;
 
 import java.io.*;
-import java.util.Scanner;
 import java.util.regex.*;
 /**
  *
@@ -15,29 +14,18 @@ public class Fichier {
     private static Structure[] tab_file;
     
     public Fichier() {
-        String fichier = "precedent.txt";
-        
-        BufferedReader clavier = new BufferedReader(new InputStreamReader(System.in));
-        BufferedReader ficTexte;
-        try {
-                ficTexte = new BufferedReader(new FileReader(new File(fichier)));
-                if (ficTexte == null) {
-                        throw new FileNotFoundException("Fichier non trouvé: "+ fichier);
-                }
-                do {
-                    ligne = ficTexte.readLine();
-                    if (ligne != null) {
-                            regex();
-                    }
-                } while (ficTexte != null);
-
-                ficTexte.close();
-                System.out.println("\n");
-                
-        } catch (FileNotFoundException e) {
-                System.out.println(e.getMessage());
-        } catch (IOException e) {
-                System.out.println(e.getMessage());
+        try{
+            InputStream flux=new FileInputStream("precedent.txt"); 
+            InputStreamReader lecture=new InputStreamReader(flux);
+            BufferedReader buff=new BufferedReader(lecture);
+            while ((ligne=buff.readLine())!=null){
+                    System.out.println(ligne);
+                    regex();
+            }
+            buff.close(); 
+        }		
+        catch (Exception e){
+            System.out.println(e.toString());
         }
     }
     
@@ -54,7 +42,13 @@ public class Fichier {
         }
     }
     
-    public void test() {
-        System.out.println("ah que coucou");
+    public String view_tab() {
+        
+        String concat = "";
+        for(int e=0; e<4; e++) {
+            concat = concat+tab_file[e].return_nb_tirage()+",";
+        }
+        //System.out.println(concat);
+        return concat;
     }
 }

@@ -1,5 +1,4 @@
 package tirage;
-import java.io.*;
 import java.util.regex.*;
 /**
  *
@@ -9,6 +8,7 @@ public class Tirage {
 
     private static Fenetre frame;
     private static Fichier iofile;
+    private static Graph chart;
     static int animateur;
     static int secretaire;
     static int scribe;
@@ -20,8 +20,9 @@ public class Tirage {
     private static String[] receive;
             
     public static void main(String[] args) {
-        frame = new Fenetre();
-        iofile = new Fichier();
+        //frame = new Fenetre();
+        //iofile = new Fichier();
+        chart = new Graph();
     }
     
     public static String selection() {

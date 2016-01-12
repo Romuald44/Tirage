@@ -7,14 +7,16 @@ package tirage;
 public class Tirage {
 
     private static Fenetre frame;
+    private static Fichier IOfile;
     static int animateur;
     static int secretaire;
     static int scribe;
     static int gestionnaire;
         
     public static void main(String[] args) {
-        frame = new Fenetre();
-        new Fichier();
+        //frame = new Fenetre();
+        IOfile = new Fichier();
+        IOfile.test();
     }
     
     public static String selection() {
@@ -22,6 +24,7 @@ public class Tirage {
         secretaire = random();
         scribe = random();
         gestionnaire = random();
+        
         //System.out.println("Animateur => "+nom(animateur));
         
         while(secretaire == animateur) {

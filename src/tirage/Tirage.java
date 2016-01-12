@@ -17,8 +17,7 @@ public class Tirage {
     private static Matcher matcher1;
     private String ligne = "";
     private static Structure[] tab_file;
-    private static String[] receive;
-            
+    
     public static void main(String[] args) {
         frame = new Fenetre();
         iofile = new Fichier();
@@ -30,25 +29,20 @@ public class Tirage {
         scribe = random();
         gestionnaire = random();
         
-        receive = iofile.view_tab().split(",");
-        
-        while(animateur == Integer.parseInt(receive[0])) {
-            animateur = random();
-        }
-        
+        iofile.view_tab();
         //System.out.println("Animateur => "+nom(animateur));
         
-        while(secretaire == animateur || secretaire == Integer.parseInt(receive[1])) {
+        while(secretaire == animateur) {
             secretaire = random();
         }
         //System.out.println("Secrétaire => "+nom(secretaire));
         
-        while(scribe == animateur || scribe == secretaire || scribe == Integer.parseInt(receive[2])) {
+        while(scribe == animateur || scribe == secretaire) {
             scribe = random();
         }
         //System.out.println("Scribe => "+nom(scribe));
         
-        while(gestionnaire == animateur || gestionnaire == secretaire || gestionnaire == scribe || gestionnaire == Integer.parseInt(receive[3])) {
+        while(gestionnaire == animateur || gestionnaire == secretaire || gestionnaire == scribe) {
             gestionnaire = random();
         }
         //System.out.println("Gestionnaire => "+nom(gestionnaire));
@@ -57,10 +51,7 @@ public class Tirage {
     
     public static String animateur() {
         int new_animateur = random();
-        while(new_animateur == animateur || new_animateur == gestionnaire ||
-                new_animateur == secretaire || new_animateur == scribe ||
-                new_animateur == Integer.parseInt(receive[0]) || new_animateur == Integer.parseInt(receive[1]) ||
-                new_animateur == Integer.parseInt(receive[2]) || new_animateur == Integer.parseInt(receive[3])) {
+        while(new_animateur == animateur || new_animateur == gestionnaire || new_animateur == secretaire || new_animateur == scribe) {
             new_animateur = random();
         }
         animateur = new_animateur;
@@ -69,10 +60,7 @@ public class Tirage {
     
     public static String secretaire() {
         int new_secretaire = random();
-        while(new_secretaire == secretaire || new_secretaire == gestionnaire ||
-                new_secretaire == animateur || new_secretaire == scribe ||
-                new_secretaire == Integer.parseInt(receive[0]) || new_secretaire == Integer.parseInt(receive[1]) ||
-                new_secretaire == Integer.parseInt(receive[2]) || new_secretaire == Integer.parseInt(receive[3])) {
+        while(new_secretaire == secretaire || new_secretaire == gestionnaire || new_secretaire == animateur || new_secretaire == scribe) {
             new_secretaire = random();
         }
         secretaire = new_secretaire;
@@ -81,10 +69,7 @@ public class Tirage {
     
     public static String scribe() {
         int new_scribe = random();
-        while(new_scribe == scribe || new_scribe == gestionnaire ||
-                new_scribe == secretaire || new_scribe == animateur ||
-                new_scribe == Integer.parseInt(receive[0]) || new_scribe == Integer.parseInt(receive[1]) ||
-                new_scribe == Integer.parseInt(receive[2]) || new_scribe == Integer.parseInt(receive[3])) {
+        while(new_scribe == scribe || new_scribe == gestionnaire || new_scribe == secretaire || new_scribe == animateur) {
             new_scribe = random();
         }
         scribe = new_scribe;
@@ -93,10 +78,7 @@ public class Tirage {
     
     public static String gestionnaire() {
         int new_gestionnaire = random();
-        while(new_gestionnaire == gestionnaire || new_gestionnaire == animateur ||
-                new_gestionnaire == secretaire || new_gestionnaire == scribe ||
-                new_gestionnaire == Integer.parseInt(receive[0]) || new_gestionnaire == Integer.parseInt(receive[1]) ||
-                new_gestionnaire == Integer.parseInt(receive[2]) || new_gestionnaire == Integer.parseInt(receive[3])) {
+        while(new_gestionnaire == gestionnaire || new_gestionnaire == animateur || new_gestionnaire == secretaire || new_gestionnaire == scribe) {
             new_gestionnaire = random();
         }
         gestionnaire = new_gestionnaire;

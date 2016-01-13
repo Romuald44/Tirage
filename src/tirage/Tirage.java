@@ -20,9 +20,9 @@ public class Tirage {
     private static String[] receive;
             
     public static void main(String[] args) {
-        //frame = new Fenetre();
-        //iofile = new Fichier();
-        chart = new Graph();
+        frame = new Fenetre();
+        iofile = new Fichier();
+        //chart = new Graph();
     }
     
     public static String selection() {

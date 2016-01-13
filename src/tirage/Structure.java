@@ -13,8 +13,8 @@ public class Structure {
    int nb_tirage;
    String firstname;
    
-   public Structure(String nb_tirage, String firstname) {
-       this.nb_tirage = Integer.parseInt(nb_tirage);
+   public Structure(int nb_tirage, String firstname) {
+       this.nb_tirage = nb_tirage;
        this.firstname = firstname;
    }
    

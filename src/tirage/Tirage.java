@@ -8,7 +8,7 @@ public class Tirage {
 
     private static Fenetre frame;
     private static Fichier iofile;
-    private static Graph chart;
+    private static BarChart_AWT chart;
     static int animateur;
     static int secretaire;
     static int scribe;
@@ -22,7 +22,11 @@ public class Tirage {
     public static void main(String[] args) {
         frame = new Fenetre();
         iofile = new Fichier();
-        //chart = new Graph();
+        
+        chart = new BarChart_AWT("Statistiques" ,"Meilleur animateur");
+
+        chart.pack();
+        chart.setVisible( true );
     }
     
     public static String selection() {

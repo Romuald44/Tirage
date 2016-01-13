@@ -19,7 +19,7 @@ public class Fichier {
             InputStreamReader lecture=new InputStreamReader(flux);
             BufferedReader buff=new BufferedReader(lecture);
             while ((ligne=buff.readLine())!=null){
-                    System.out.println(ligne);
+                    //System.out.println(ligne);
                     regex();
             }
             buff.close(); 
@@ -62,5 +62,35 @@ public class Fichier {
         }
         System.out.println(concat);
         return concat;
+    }
+    
+    public int freq(String name) {
+        String test = null;
+        int total =0;
+        Pattern pattern2;
+        Matcher matcher2;
+        
+        pattern2 = Pattern.compile(name);
+        
+        try{
+            InputStream flux=new FileInputStream("precedent.txt"); 
+            InputStreamReader lecture=new InputStreamReader(flux);
+            BufferedReader buff=new BufferedReader(lecture);
+            while ((test=buff.readLine())!= null){
+                    
+                    matcher2 = pattern2.matcher(test);
+                    while(matcher2.find()) {
+                        total++;
+                        //System.out.println(total);
+                    }
+                    //System.out.print(test);
+            }
+            buff.close();
+        }		
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+        
+        return total;
     }
 }

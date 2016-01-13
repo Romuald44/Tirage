@@ -64,13 +64,103 @@ public class Fichier {
         return concat;
     }
     
-    public int freq(String name) {
+    public int freq_anim(String name) {
         String test = null;
         int total =0;
         Pattern pattern2;
         Matcher matcher2;
         
-        pattern2 = Pattern.compile(name);
+        pattern2 = Pattern.compile(name+"\\;\\w{1,9}\\;\\w{1,9}\\;\\w{1,9}\\;");
+        
+        try{
+            InputStream flux=new FileInputStream("precedent.txt"); 
+            InputStreamReader lecture=new InputStreamReader(flux);
+            BufferedReader buff=new BufferedReader(lecture);
+            while ((test=buff.readLine())!= null){
+                    
+                    matcher2 = pattern2.matcher(test);
+                    while(matcher2.find()) {
+                        total++;
+                        //System.out.println(total);
+                    }
+                    //System.out.print(test);
+            }
+            buff.close();
+        }		
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+        
+        return total;
+    }
+    
+    public int freq_secret(String name) {
+        String test = null;
+        int total =0;
+        Pattern pattern2;
+        Matcher matcher2;
+        
+        pattern2 = Pattern.compile("\\w{1,9}\\;"+name+"\\;\\w{1,9}\\;\\w{1,9}\\;");
+        
+        try{
+            InputStream flux=new FileInputStream("precedent.txt"); 
+            InputStreamReader lecture=new InputStreamReader(flux);
+            BufferedReader buff=new BufferedReader(lecture);
+            while ((test=buff.readLine())!= null){
+                    
+                    matcher2 = pattern2.matcher(test);
+                    while(matcher2.find()) {
+                        total++;
+                        //System.out.println(total);
+                    }
+                    //System.out.print(test);
+            }
+            buff.close();
+        }		
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+        
+        return total;
+    }
+    
+    public int freq_scribe(String name) {
+        String test = null;
+        int total =0;
+        Pattern pattern2;
+        Matcher matcher2;
+        
+        pattern2 = Pattern.compile("\\w{1,9}\\;\\w{1,9}\\;"+name+"\\;\\w{1,9}\\;");
+        
+        try{
+            InputStream flux=new FileInputStream("precedent.txt"); 
+            InputStreamReader lecture=new InputStreamReader(flux);
+            BufferedReader buff=new BufferedReader(lecture);
+            while ((test=buff.readLine())!= null){
+                    
+                    matcher2 = pattern2.matcher(test);
+                    while(matcher2.find()) {
+                        total++;
+                        //System.out.println(total);
+                    }
+                    //System.out.print(test);
+            }
+            buff.close();
+        }		
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+        
+        return total;
+    }
+    
+    public int freq_gest(String name) {
+        String test = null;
+        int total =0;
+        Pattern pattern2;
+        Matcher matcher2;
+        
+        pattern2 = Pattern.compile("\\w{1,9}\\;\\w{1,9}\\;\\w{1,9}\\;"+name+"\\;");
         
         try{
             InputStream flux=new FileInputStream("precedent.txt"); 

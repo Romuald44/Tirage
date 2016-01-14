@@ -15,12 +15,15 @@ import javax.swing.JTextArea;
  
 public class Fenetre extends JFrame {
     JButton button = new JButton ("Tirage");
+    JButton stats = new JButton ("Stats");
     JButton b_anim = new JButton ("Animateur");
     JButton b_secre = new JButton ("Secretaire");
     JButton b_scrib = new JButton ("Scribe");
     JButton b_gest = new JButton ("Gestionnaire");
     JTextArea reponse = new JTextArea();
-  
+    
+    private static BarChart_AWT chart;
+    
   public Fenetre(){
     this.setTitle("Tirage");
     this.setSize(350, 200);
@@ -34,6 +37,7 @@ public class Fenetre extends JFrame {
     reponse.setFont(font);
     
     top.add(button);
+    top.add(stats);
     content.add(reponse);
     content.setBackground(Color.WHITE);
     
@@ -71,6 +75,14 @@ public class Fenetre extends JFrame {
     button.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e) {
             reponse(Tirage.selection());
+        }
+    });
+    
+    stats.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent e) {
+            chart = new BarChart_AWT("Statistiques" ,"Meilleur animateur", "Fabien");
+            chart.pack();
+            chart.setVisible( true );
         }
     });
     

@@ -6,8 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
 
-//import static javaprojet.JavaProjet.first_format;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -21,6 +19,7 @@ public class Fenetre extends JFrame {
     JButton b_scrib = new JButton ("Scribe");
     JButton b_gest = new JButton ("Gestionnaire");
     JTextArea reponse = new JTextArea();
+    Fichier iofile;
     
     private static BarChart_AWT chart;
     
@@ -29,6 +28,8 @@ public class Fenetre extends JFrame {
     this.setSize(350, 200);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setLocationRelativeTo(null);
+    
+    iofile = new Fichier();
     
     JPanel top = new JPanel();
     JPanel content = new JPanel();
@@ -80,7 +81,7 @@ public class Fenetre extends JFrame {
     
     stats.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e) {
-            chart = new BarChart_AWT("Statistiques" ,"Meilleur animateur", "Fabien");
+            chart = new BarChart_AWT("Statistiques" , iofile.nbtopers(0), 0);
             chart.pack();
             chart.setVisible( true );
         }

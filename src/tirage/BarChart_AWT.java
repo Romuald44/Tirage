@@ -18,22 +18,24 @@ public class BarChart_AWT extends ApplicationFrame
     Fichier iofile = new Fichier();
     JButton next = new JButton ("Next");
     JButton prec = new JButton ("Prec");
-        
-    public BarChart_AWT( String applicationTitle , String chartTitle , String pers )
+    BarChart_AWT chart;
+    static int increment = 0;
+    
+    public BarChart_AWT( String applicationTitle , String chartTitle , int nbpers )
     {
-       super( applicationTitle );        
+       super( applicationTitle );   
        JFreeChart barChart = ChartFactory.createBarChart(
           chartTitle,           
           "Rôles",            
           "Fréquence",            
-          createDataset(pers),          
+          createDataset(nbpers),          
           PlotOrientation.VERTICAL,           
           true, true, false);
 
-        ChartPanel chartPanel = new ChartPanel( barChart );        
+        ChartPanel chartPanel = new ChartPanel( barChart );
         chartPanel.setPreferredSize(new java.awt.Dimension( 560 , 367 ) );        
         setContentPane( chartPanel );
-        
+                
         JPanel top = new JPanel();
         top.add(prec);
         top.add(next);
@@ -41,14 +43,15 @@ public class BarChart_AWT extends ApplicationFrame
         
         next.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-                BarChart_AWT chart = new BarChart_AWT("Statistiques" ,"Meilleur animateur", "Romuald");
+                increment++;
+                chart = new BarChart_AWT("Statistiques" , iofile.nbtopers(increment), increment);
                 chart.pack();
                 chart.setVisible( true );
             }
         });
     }
    
-    private CategoryDataset createDataset(String pers)
+    private CategoryDataset createDataset(int nbpers)
     {
          final String animateur = "Animateur";        
          final String secretaire = "Secretaire";        
@@ -58,10 +61,10 @@ public class BarChart_AWT extends ApplicationFrame
          final DefaultCategoryDataset dataset = 
          new DefaultCategoryDataset( );
 
-         dataset.addValue( iofile.freq_anim(pers) , animateur , frequence );
-         dataset.addValue( iofile.freq_secret(pers) , secretaire , frequence );
-         dataset.addValue( iofile.freq_scribe(pers) , scribe , frequence );
-         dataset.addValue( iofile.freq_gest(pers) , gestionnaire , frequence );
+         dataset.addValue( iofile.freq_anim(nbpers) , animateur , frequence );
+         dataset.addValue( iofile.freq_secret(nbpers) , secretaire , frequence );
+         dataset.addValue( iofile.freq_scribe(nbpers) , scribe , frequence );
+         dataset.addValue( iofile.freq_gest(nbpers) , gestionnaire , frequence );
 
          return dataset;
     }

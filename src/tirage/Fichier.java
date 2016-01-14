@@ -54,6 +54,12 @@ public class Fichier {
         return 0;
     }
     
+    public String nbtopers(int number) {
+        String data[] = {"Fabien", "Romain", "Floran" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
+
+        return data[number];
+    }
+    
     public String view_tab() {
         
         String concat = "";
@@ -64,11 +70,12 @@ public class Fichier {
         return concat;
     }
     
-    public int freq_anim(String name) {
+    public int freq_anim(int nb_name) {
         String test = null;
         int total =0;
         Pattern pattern2;
         Matcher matcher2;
+        String name = nbtopers(nb_name);
         
         pattern2 = Pattern.compile(name+"\\;\\w{1,9}\\;\\w{1,9}\\;\\w{1,9}\\;");
         
@@ -94,11 +101,12 @@ public class Fichier {
         return total;
     }
     
-    public int freq_secret(String name) {
+    public int freq_secret(int nb_name) {
         String test = null;
         int total =0;
         Pattern pattern2;
         Matcher matcher2;
+        String name = nbtopers(nb_name);
         
         pattern2 = Pattern.compile("\\w{1,9}\\;"+name+"\\;\\w{1,9}\\;\\w{1,9}\\;");
         
@@ -124,11 +132,12 @@ public class Fichier {
         return total;
     }
     
-    public int freq_scribe(String name) {
+    public int freq_scribe(int nb_name) {
         String test = null;
         int total =0;
         Pattern pattern2;
         Matcher matcher2;
+        String name = nbtopers(nb_name);
         
         pattern2 = Pattern.compile("\\w{1,9}\\;\\w{1,9}\\;"+name+"\\;\\w{1,9}\\;");
         
@@ -154,11 +163,12 @@ public class Fichier {
         return total;
     }
     
-    public int freq_gest(String name) {
+    public int freq_gest(int nb_name) {
         String test = null;
         int total =0;
         Pattern pattern2;
         Matcher matcher2;
+        String name = nbtopers(nb_name);
         
         pattern2 = Pattern.compile("\\w{1,9}\\;\\w{1,9}\\;\\w{1,9}\\;"+name+"\\;");
         

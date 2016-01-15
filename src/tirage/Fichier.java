@@ -22,8 +22,8 @@ public class Fichier {
                     //System.out.println(ligne);
                     regex();
             }
-            buff.close(); 
-        }		
+            buff.close();
+        }
         catch (Exception e){
             System.out.println(e.toString());
         }
@@ -37,7 +37,7 @@ public class Fichier {
         tab_file = new Structure[4];
         while(matcher1.find()) {
             tab_file[i] = new Structure(correspondance(matcher1.group(2)), matcher1.group(2));
-            //System.out.println(matcher1.group(2)+matcher1.group(3));
+            System.out.println(tab_file[i].return_nb_tirage()+" "+tab_file[i].return_name());
             i++;
         }
     }

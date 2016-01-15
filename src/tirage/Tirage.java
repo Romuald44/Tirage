@@ -1,5 +1,6 @@
 package tirage;
 import java.util.regex.*;
+import java.util.*;
 /**
  *
  * @author Romuald

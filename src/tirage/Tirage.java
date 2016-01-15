@@ -113,7 +113,7 @@ public class Tirage {
     }
     
     public static String nom(int adr) {
-        String tableauNom[] = {"Fabien", "Romain", "Floran" , "Guillaume", "Romuald", "Clément", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
+        String tableauNom[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clément", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
         return tableauNom[adr-1];
     }
     

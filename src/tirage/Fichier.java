@@ -43,7 +43,7 @@ public class Fichier {
     }
     
     public int correspondance(String nom) {
-        String data[] = {"Fabien", "Romain", "Floran" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
+        String data[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
         int i = 1;
         for (String s : data) {
             if(s.equals(nom)) {
@@ -55,7 +55,7 @@ public class Fichier {
     }
     
     public String nbtopers(int number) {
-        String data[] = {"Fabien", "Romain", "Floran" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
+        String data[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
 
         return data[number];
     }

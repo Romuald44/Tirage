@@ -12,6 +12,7 @@ public class Fichier {
     private static Matcher matcher1;
     private String ligne = "";
     private static Structure[] tab_file;
+    String data[] = {"Fabien", "Romain", "Floran" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
     
     public Fichier() {
         try{
@@ -43,7 +44,6 @@ public class Fichier {
     }
     
     public int correspondance(String nom) {
-        String data[] = {"Fabien", "Romain", "Floran" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
         int i = 1;
         for (String s : data) {
             if(s.equals(nom)) {
@@ -55,8 +55,6 @@ public class Fichier {
     }
     
     public String nbtopers(int number) {
-        String data[] = {"Fabien", "Romain", "Floran" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
-
         return data[number];
     }
     

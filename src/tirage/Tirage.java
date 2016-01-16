@@ -1,5 +1,6 @@
 package tirage;
 import java.util.regex.*;
+import java.util.*;
 /**
  *
  * @author Romuald
@@ -17,17 +18,18 @@ public class Tirage {
     private String ligne = "";
     private static Structure[] tab_file;
     private static String[] receive;
-            
+    private static String name_tirage[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
+    
     public static void main(String[] args) {
         frame = new Fenetre();
         iofile = new Fichier();
     }
     
     public static String selection() {
-        animateur = random();
-        secretaire = random();
-        scribe = random();
-        gestionnaire = random();
+        animateur = moins_anim();
+        secretaire = moins_secret();
+        scribe = moins_scribe();
+        gestionnaire = moins_gest();
         
         if(receive == null) {receive = iofile.view_tab().split(",");}
         
@@ -113,11 +115,103 @@ public class Tirage {
     }
     
     public static String nom(int adr) {
-        String tableauNom[] = {"Fabien", "Romain", "Floran" , "Guillaume", "Romuald", "Clément", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
+        String tableauNom[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clément", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
         return tableauNom[adr-1];
     }
     
     public static String affichage(int anim, int secret, int scrib, int gestio) {
         return "Animateur => "+nom(anim)+"\n"+"Secrétaire => "+nom(secret)+"\n"+"Scribe => "+nom(scrib)+"\n"+"Gestionnaire => "+nom(gestio);
+    }
+    
+    public static int moins_anim() {
+        final String[][] data = new String[12][2];
+
+        for(int i = 0; i < 12; i++) {
+            data[i][0] = Integer.toString(iofile.freq_anim(i));
+            data[i][1] = name_tirage[i];
+        }
+        
+        Arrays.sort(data, new Comparator<String[]>() {
+            @Override
+            public int compare(final String[] entry1, final String[] entry2) {
+                final String time1 = entry1[0];
+                final String time2 = entry2[0];
+                return time1.compareTo(time2);
+            }
+        });
+        
+        String rep = data[0][1];
+        System.out.println("Moins Animateur = "+rep);
+        int rep_int = iofile.correspondance(rep);
+        return rep_int;
+    }
+    
+    public static int moins_secret() {
+        final String[][] data = new String[12][2];
+
+        for(int i = 0; i < 12; i++) {
+            data[i][0] = Integer.toString(iofile.freq_secret(i));
+            data[i][1] = name_tirage[i];
+        }
+        
+        Arrays.sort(data, new Comparator<String[]>() {
+            @Override
+            public int compare(final String[] entry1, final String[] entry2) {
+                final String time1 = entry1[0];
+                final String time2 = entry2[0];
+                return time1.compareTo(time2);
+            }
+        });
+        
+        String rep = data[0][1];
+        System.out.println("Moins Secrétaire = "+rep);
+        int rep_int = iofile.correspondance(rep);
+        return rep_int;
+    }
+    
+    public static int moins_scribe() {
+        final String[][] data = new String[12][2];
+
+        for(int i = 0; i < 12; i++) {
+            data[i][0] = Integer.toString(iofile.freq_scribe(i));
+            data[i][1] = name_tirage[i];
+        }
+        
+        Arrays.sort(data, new Comparator<String[]>() {
+            @Override
+            public int compare(final String[] entry1, final String[] entry2) {
+                final String time1 = entry1[0];
+                final String time2 = entry2[0];
+                return time1.compareTo(time2);
+            }
+        });
+        
+        String rep = data[0][1];
+        System.out.println("Moins Scribe = "+rep);
+        int rep_int = iofile.correspondance(rep);
+        return rep_int;
+    }
+    
+    public static int moins_gest() {
+        final String[][] data = new String[12][2];
+
+        for(int i = 0; i < 12; i++) {
+            data[i][0] = Integer.toString(iofile.freq_gest(i));
+            data[i][1] = name_tirage[i];
+        }
+        
+        Arrays.sort(data, new Comparator<String[]>() {
+            @Override
+            public int compare(final String[] entry1, final String[] entry2) {
+                final String time1 = entry1[0];
+                final String time2 = entry2[0];
+                return time1.compareTo(time2);
+            }
+        });
+        
+        String rep = data[0][1];
+        System.out.println("Moins Gestionnaire = "+rep);
+        int rep_int = iofile.correspondance(rep);
+        return rep_int;
     }
 }

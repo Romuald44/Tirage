@@ -12,7 +12,7 @@ public class Fichier {
     private static Matcher matcher1;
     private String ligne = "";
     private static Structure[] tab_file;
-    String data[] = {"Fabien", "Romain", "Floran" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
+    String data[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
     
     public Fichier() {
         try{

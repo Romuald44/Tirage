@@ -18,7 +18,7 @@ public class Tirage {
     private String ligne = "";
     private static Structure[] tab_file;
     private static String[] receive;
-    private static String name_tirage[] = {"Fabien", "Romain", "Floran" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
+    private static String name_tirage[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
     
     public static void main(String[] args) {
         frame = new Fenetre();
@@ -115,7 +115,7 @@ public class Tirage {
     }
     
     public static String nom(int adr) {
-        String tableauNom[] = {"Fabien", "Romain", "Floran" , "Guillaume", "Romuald", "Clément", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
+        String tableauNom[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clément", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
         return tableauNom[adr-1];
     }
     

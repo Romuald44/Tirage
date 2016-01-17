@@ -20,12 +20,12 @@ import org.apache.commons.lang3.*;
  */
 public class XML {
 
-    static Element racine;
-    static String data[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
-    static String[][] save_tab;
+    Element racine;
+    String data[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
+    String[][] save_tab;
     
     //On crée un nouveau Document JDOM basé sur la racine que l'on vient de créer
-    static org.jdom2.Document document = new Document(racine);
+    org.jdom2.Document document = new Document(racine);
 
     public XML()
     {
@@ -44,32 +44,47 @@ public class XML {
 
     }
 
-    public void add(String prosit, String anim, String secre, String scrib, String gest)
+    public void add(String anim, String secre, String scrib, String gest)
     {
-         Element etudiant = new Element("prosit");
-         racine.addContent(etudiant);
+        List listEtudiants = racine.getChildren("prosit");
+        //On crée un Iterator sur notre liste
+        Iterator i = listEtudiants.iterator();
+        int last_prosit=0;
+        
+        while(i.hasNext())
+        {
+            i.next();
+            last_prosit++;
+        }
+        
+        Element etudiant = new Element("prosit");
+        racine.addContent(etudiant);
 
-         //On crée un nouvel Attribut classe et on l'ajoute à etudiant
-         //grâce à la méthode setAttribute
-         Attribute classe = new Attribute("classe", prosit);
-         etudiant.setAttribute(classe);
+        //On crée un nouvel Attribut classe et on l'ajoute à etudiant
+        //grâce à la méthode setAttribute
+        Attribute classe = new Attribute("classe", "P"+Integer.toString(last_prosit+1));
+        etudiant.setAttribute(classe);
 
-         //On crée un nouvel Element nom, on lui assigne du texte
-         //et on l'ajoute en tant qu'Element de etudiant
-         Element animateur = new Element("animateur");
-         Element secretaire = new Element("secretaire");
-         Element scribe = new Element("scribe");
-         Element gestionnaire = new Element("gestionnaire");
-
-         animateur.setText(anim);
-         secretaire.setText(secre);
-         scribe.setText(scrib);
-         gestionnaire.setText(gest);
-
-         etudiant.addContent(animateur);
-         etudiant.addContent(secretaire);
-         etudiant.addContent(scribe);
-         etudiant.addContent(gestionnaire);
+        //On crée un nouvel Element nom, on lui assigne du texte
+        //et on l'ajoute en tant qu'Element de etudiant
+        Element animateur = new Element("animateur");
+        Element secretaire = new Element("secretaire");
+        Element scribe = new Element("scribe");
+        Element gestionnaire = new Element("gestionnaire");
+        
+        System.out.println(anim + " " + secre + " " + scrib + " " + gest);
+        
+        animateur.setText(anim);
+        secretaire.setText(secre);
+        scribe.setText(scrib);
+        gestionnaire.setText(gest);
+        
+        etudiant.addContent(animateur);
+        etudiant.addContent(secretaire);
+        etudiant.addContent(scribe);
+        etudiant.addContent(gestionnaire);
+        
+        enregistre("sauvegarde.xml");
     }
 
     public String list_animateur()

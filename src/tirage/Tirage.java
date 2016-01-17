@@ -23,10 +23,8 @@ public class Tirage {
         scribe = xml.moins_scribe();
         gestionnaire = xml.moins_gest();
         
-        if(receive == null) {
-            receive = xml.last_nb_save_tab().split(",");
-            System.out.println(receive[0]+" "+receive[1]+" "+receive[2]+" "+receive[3]);
-        }
+        receive = xml.last_nb_save_tab().split(",");
+        System.out.println(receive[0]+" "+receive[1]+" "+receive[2]+" "+receive[3]);
         
         
         while(animateur == Integer.parseInt(receive[0]) || animateur == Integer.parseInt(receive[1]) ||
@@ -111,11 +109,27 @@ public class Tirage {
     }
     
     public static String nom(int adr) {
-        String tableauNom[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clément", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
+        String tableauNom[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
         return tableauNom[adr-1];
     }
     
     public static String affichage(int anim, int secret, int scrib, int gestio) {
         return "Animateur => "+nom(anim)+"\n"+"Secrétaire => "+nom(secret)+"\n"+"Scribe => "+nom(scrib)+"\n"+"Gestionnaire => "+nom(gestio);
+    }
+    
+    public static String getanimateur() {
+        return nom(animateur);
+    }
+    
+    public static String getsecretaire() {
+        return nom(secretaire);
+    }
+    
+    public static String getscribe() {
+       return nom(scribe);
+    }
+    
+    public static String getgestionnaire() {
+        return nom(gestionnaire);
     }
 }

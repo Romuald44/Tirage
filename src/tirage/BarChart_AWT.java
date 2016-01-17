@@ -3,17 +3,16 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel; 
 import org.jfree.chart.JFreeChart; 
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset; 
-import org.jfree.data.category.DefaultCategoryDataset; 
-import org.jfree.ui.ApplicationFrame; 
-import org.jfree.ui.RefineryUtilities; 
+import org.jfree.data.category.DefaultCategoryDataset;
 
-public class BarChart_AWT extends ApplicationFrame
+public class BarChart_AWT extends JFrame
 {
     XML iofile = new XML();
     JButton next = new JButton ("Next");
@@ -23,7 +22,6 @@ public class BarChart_AWT extends ApplicationFrame
     
     public BarChart_AWT( String applicationTitle , String chartTitle , int nbpers )
     {
-       super( applicationTitle );   
        JFreeChart barChart = ChartFactory.createBarChart(
           chartTitle,           
           "Rôles",            
@@ -33,8 +31,10 @@ public class BarChart_AWT extends ApplicationFrame
           true, true, false);
 
         ChartPanel chartPanel = new ChartPanel( barChart );
-        chartPanel.setPreferredSize(new java.awt.Dimension( 560 , 367 ) );        
-        setContentPane( chartPanel );
+        chartPanel.setPreferredSize(new java.awt.Dimension( 560 , 367 ) );  
+        this.setTitle(applicationTitle);
+        this.setContentPane( chartPanel );
+        this.dispose();
                 
         JPanel top = new JPanel();
         top.add(prec);
@@ -46,20 +46,28 @@ public class BarChart_AWT extends ApplicationFrame
                 if(increment>0){increment--;}
                 chart = new BarChart_AWT("Statistiques" , iofile.nb_to_name(increment), increment);
                 chart.pack();
+                chart.setLocationRelativeTo(null);
+                hidden();
                 chart.setVisible( true );
             }
         });
         
         next.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-                increment++;
+                if(increment<11){increment++;}
                 chart = new BarChart_AWT("Statistiques" , iofile.nb_to_name(increment), increment);
                 chart.pack();
+                chart.setLocationRelativeTo(null);
+                hidden();
                 chart.setVisible( true );
             }
         });
     }
-   
+    
+    public void hidden() {
+        this.dispose();
+    }
+    
     private CategoryDataset createDataset(int nbpers)
     {
          final String animateur = "Animateur";        

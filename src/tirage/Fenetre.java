@@ -23,12 +23,12 @@ public class Fenetre extends JFrame {
     
     private static BarChart_AWT chart;
     
-    public Fenetre(){
+    public Fenetre() {
         this.setTitle("Tirage");
         this.setSize(350, 200);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
-
+        
         iofile = new XML();
 
         JPanel top = new JPanel();
@@ -83,6 +83,7 @@ public class Fenetre extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 chart = new BarChart_AWT("Statistiques" , iofile.nb_to_name(0), 0);
                 chart.pack();
+                chart.setLocationRelativeTo(null);
                 chart.setVisible( true );
             }
         });

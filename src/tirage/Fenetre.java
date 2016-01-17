@@ -75,7 +75,7 @@ public class Fenetre extends JFrame {
     
     button.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e) {
-            reponse(Tirage.selection());
+            reponse.setText(Tirage.selection());
         }
     });
     
@@ -89,30 +89,26 @@ public class Fenetre extends JFrame {
     
     b_anim.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e) {
-            reponse(Tirage.animateur());
+            reponse.setText(Tirage.animateur());
         }
     });
     
     b_secre.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e) {
-            reponse(Tirage.secretaire());
+            reponse.setText(Tirage.secretaire());
         }
     });
     
     b_scrib.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e) {
-            reponse(Tirage.scribe());
+            reponse.setText(Tirage.scribe());
         }
     });
     
     b_gest.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e) {
-            reponse(Tirage.gestionnaire());
+            reponse.setText(Tirage.gestionnaire());
         }
     });
-  }
-  
-  public void reponse(String rep) {
-        reponse.setText(rep);
   }
 }

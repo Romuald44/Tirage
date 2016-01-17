@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personnes>
+  <prosit classe="P2">
+    <animateur>Clement</animateur>
+    <secretaire>Romuald</secretaire>
+    <scribe>Guillaume</scribe>
+    <gestionnaire>Maxime</gestionnaire>
+  </prosit>
+  <prosit classe="P3">
+    <animateur>Axel</animateur>
+    <secretaire>Mathieu</secretaire>
+    <scribe>Paul</scribe>
+    <gestionnaire>Guillaume</gestionnaire>
+  </prosit>
+  <prosit classe="P5">
+    <animateur>Paul</animateur>
+    <secretaire>Alban</secretaire>
+    <scribe>Guillaume</scribe>
+    <gestionnaire>Romain</gestionnaire>
+  </prosit>
+  <prosit classe="P6">
+    <animateur>Romuald</animateur>
+    <secretaire>Romain</secretaire>
+    <scribe>Victor</scribe>
+    <gestionnaire>Reynald</gestionnaire>
+  </prosit>
+  <prosit classe="P7">
+    <animateur>Eva</animateur>
+    <secretaire>Alban</secretaire>
+    <scribe>Mathieu</scribe>
+    <gestionnaire>Guillaume</gestionnaire>
+  </prosit>
+  <prosit classe="P8">
+    <animateur>Reynald</animateur>
+    <secretaire>Victor</secretaire>
+    <scribe>Romuald</scribe>
+    <gestionnaire>Mathieu</gestionnaire>
+  </prosit>
+  <prosit classe="P9">
+    <animateur>Romuald</animateur>
+    <secretaire>Reynald</secretaire>
+    <scribe>Guillaume</scribe>
+    <gestionnaire>Clement</gestionnaire>
+  </prosit>
+  <prosit classe="P11">
+    <animateur>Fabien</animateur>
+    <secretaire>Luc</secretaire>
+    <scribe>Guillaume</scribe>
+    <gestionnaire>Alexandre</gestionnaire>
+  </prosit>
+  <prosit classe="P12">
+    <animateur>Eva</animateur>
+    <secretaire>Romain</secretaire>
+    <scribe>Reynald</scribe>
+    <gestionnaire>Fabien</gestionnaire>
+  </prosit>
+  <prosit classe="P13">
+    <animateur>Guillaume</animateur>
+    <secretaire>Alexandre</secretaire>
+    <scribe>Romuald</scribe>
+    <gestionnaire>Paul</gestionnaire>
+  </prosit>
+  <prosit classe="P14">
+    <animateur>Luc</animateur>
+    <secretaire>Romain</secretaire>
+    <scribe>Paul</scribe>
+    <gestionnaire>Clement</gestionnaire>
+  </prosit>
+  <prosit classe="P15">
+    <animateur>Quentin</animateur>
+    <secretaire>Fabien</secretaire>
+    <scribe>Eva</scribe>
+    <gestionnaire>Reynald</gestionnaire>
+  </prosit>
+  <prosit classe="P16">
+    <animateur>Paul</animateur>
+    <secretaire>Fabien</secretaire>
+    <scribe>Eva</scribe>
+    <gestionnaire>Luc</gestionnaire>
+  </prosit>
+  <prosit classe="P17">
+    <animateur>Alexandre</animateur>
+    <secretaire>Guillaume</secretaire>
+    <scribe>Paul</scribe>
+    <gestionnaire>Quentin</gestionnaire>
+  </prosit>
+  <prosit classe="P18">
+    <animateur>Romain</animateur>
+    <secretaire>Eva</secretaire>
+    <scribe>Clement</scribe>
+    <gestionnaire>Luc</gestionnaire>
+  </prosit>
+  <prosit classe="P19">
+    <animateur>Guillaume</animateur>
+    <secretaire>Reynald</secretaire>
+    <scribe>Alexandre</scribe>
+    <gestionnaire>Fabien</gestionnaire>
+  </prosit>
+</personnes>

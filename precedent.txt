@@ -5,7 +5,6 @@ Romuald;Romain;Victor;Reynald;
 Eva;Alban;Mathieu;Guillaume;
 Reynald;Victor;Romuald;Mathieu;
 Romuald;Reynald;Guillaume;Clement;
-
 Fabien;Luc;Guillaume;Alexandre;
 Eva;Romain;Reynald;Fabien;
 Guillaume;Alexandre;Romuald;Paul;

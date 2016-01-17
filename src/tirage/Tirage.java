@@ -1,40 +1,33 @@
 package tirage;
-import java.util.regex.*;
-import java.util.*;
 /**
  *
  * @author Romuald
  */
 public class Tirage {
 
-    private static Fenetre frame;
-    private static Fichier iofile;
+    private static Fenetre frame = new Fenetre();
+    private static XML xml = new XML();
     static int animateur;
     static int secretaire;
     static int scribe;
     static int gestionnaire;
-    private static Pattern pattern1;
-    private static Matcher matcher1;
-    private String ligne = "";
-    private static Structure[] tab_file;
-    private static String[] receive;
-    private static String name_tirage[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
+    private static String[] receive = null;
     
     public static void main(String[] args) {
-        XML test = new XML();
-        test.save_tab();
-        test.view_nb_save_tab();
-        //frame = new Fenetre();
-        //iofile = new Fichier();
+        xml.save_tab();
     }
     
     public static String selection() {
-        animateur = moins_anim();
-        secretaire = moins_secret();
-        scribe = moins_scribe();
-        gestionnaire = moins_gest();
+        animateur = xml.moins_anim();
+        secretaire = xml.moins_secret();
+        scribe = xml.moins_scribe();
+        gestionnaire = xml.moins_gest();
         
-        if(receive == null) {receive = iofile.view_tab().split(",");}
+        if(receive == null) {
+            receive = xml.last_nb_save_tab().split(",");
+            System.out.println(receive[0]+" "+receive[1]+" "+receive[2]+" "+receive[3]);
+        }
+        
         
         while(animateur == Integer.parseInt(receive[0]) || animateur == Integer.parseInt(receive[1]) ||
                 animateur == Integer.parseInt(receive[2]) || animateur == Integer.parseInt(receive[3])) {
@@ -124,97 +117,5 @@ public class Tirage {
     
     public static String affichage(int anim, int secret, int scrib, int gestio) {
         return "Animateur => "+nom(anim)+"\n"+"Secrétaire => "+nom(secret)+"\n"+"Scribe => "+nom(scrib)+"\n"+"Gestionnaire => "+nom(gestio);
-    }
-    
-    public static int moins_anim() {
-        final String[][] data = new String[12][2];
-
-        for(int i = 0; i < 12; i++) {
-            data[i][0] = Integer.toString(iofile.freq_anim(i));
-            data[i][1] = name_tirage[i];
-        }
-        
-        Arrays.sort(data, new Comparator<String[]>() {
-            @Override
-            public int compare(final String[] entry1, final String[] entry2) {
-                final String time1 = entry1[0];
-                final String time2 = entry2[0];
-                return time1.compareTo(time2);
-            }
-        });
-        
-        String rep = data[0][1];
-        System.out.println("Moins Animateur = "+rep);
-        int rep_int = iofile.correspondance(rep);
-        return rep_int;
-    }
-    
-    public static int moins_secret() {
-        final String[][] data = new String[12][2];
-
-        for(int i = 0; i < 12; i++) {
-            data[i][0] = Integer.toString(iofile.freq_secret(i));
-            data[i][1] = name_tirage[i];
-        }
-        
-        Arrays.sort(data, new Comparator<String[]>() {
-            @Override
-            public int compare(final String[] entry1, final String[] entry2) {
-                final String time1 = entry1[0];
-                final String time2 = entry2[0];
-                return time1.compareTo(time2);
-            }
-        });
-        
-        String rep = data[0][1];
-        System.out.println("Moins Secrétaire = "+rep);
-        int rep_int = iofile.correspondance(rep);
-        return rep_int;
-    }
-    
-    public static int moins_scribe() {
-        final String[][] data = new String[12][2];
-
-        for(int i = 0; i < 12; i++) {
-            data[i][0] = Integer.toString(iofile.freq_scribe(i));
-            data[i][1] = name_tirage[i];
-        }
-        
-        Arrays.sort(data, new Comparator<String[]>() {
-            @Override
-            public int compare(final String[] entry1, final String[] entry2) {
-                final String time1 = entry1[0];
-                final String time2 = entry2[0];
-                return time1.compareTo(time2);
-            }
-        });
-        
-        String rep = data[0][1];
-        System.out.println("Moins Scribe = "+rep);
-        int rep_int = iofile.correspondance(rep);
-        return rep_int;
-    }
-    
-    public static int moins_gest() {
-        final String[][] data = new String[12][2];
-
-        for(int i = 0; i < 12; i++) {
-            data[i][0] = Integer.toString(iofile.freq_gest(i));
-            data[i][1] = name_tirage[i];
-        }
-        
-        Arrays.sort(data, new Comparator<String[]>() {
-            @Override
-            public int compare(final String[] entry1, final String[] entry2) {
-                final String time1 = entry1[0];
-                final String time2 = entry2[0];
-                return time1.compareTo(time2);
-            }
-        });
-        
-        String rep = data[0][1];
-        System.out.println("Moins Gestionnaire = "+rep);
-        int rep_int = iofile.correspondance(rep);
-        return rep_int;
     }
 }

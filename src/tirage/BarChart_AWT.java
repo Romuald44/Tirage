@@ -15,7 +15,7 @@ import org.jfree.ui.RefineryUtilities;
 
 public class BarChart_AWT extends ApplicationFrame
 {
-    Fichier iofile = new Fichier();
+    XML iofile = new XML();
     JButton next = new JButton ("Next");
     JButton prec = new JButton ("Prec");
     BarChart_AWT chart;
@@ -41,10 +41,19 @@ public class BarChart_AWT extends ApplicationFrame
         top.add(next);
         this.getContentPane().add(top, BorderLayout.NORTH);
         
+        prec.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                if(increment>0){increment--;}
+                chart = new BarChart_AWT("Statistiques" , iofile.nb_to_name(increment), increment);
+                chart.pack();
+                chart.setVisible( true );
+            }
+        });
+        
         next.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 increment++;
-                chart = new BarChart_AWT("Statistiques" , iofile.nbtopers(increment), increment);
+                chart = new BarChart_AWT("Statistiques" , iofile.nb_to_name(increment), increment);
                 chart.pack();
                 chart.setVisible( true );
             }

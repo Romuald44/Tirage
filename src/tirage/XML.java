@@ -5,11 +5,15 @@
  */
 package tirage;
 import java.io.*;
+import java.util.Arrays;
+import java.util.Comparator;
 import org.jdom2.*;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.*;
 import java.util.List;
 import java.util.Iterator;
+import org.apache.commons.lang3.*;
+
 /**
  *
  * @author Romuald
@@ -68,76 +72,88 @@ public class XML {
          etudiant.addContent(gestionnaire);
     }
 
-    public void affiche_animateur()
+    public String list_animateur()
     {
-       //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
-       List listEtudiants = racine.getChildren("prosit");
-
-       //On crée un Iterator sur notre liste
-       Iterator i = listEtudiants.iterator();
-       while(i.hasNext())
-       {
-          //On recrée l'Element courant à chaque tour de boucle afin de
-          //pouvoir utiliser les méthodes propres aux Element comme :
-          //sélectionner un nœud fils, modifier du texte, etc...
-          Element courant = (Element)i.next();
-          //On affiche le nom de l’élément courant
-          System.out.println(courant.getChild("animateur").getText());
-       }
+        //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
+        List listEtudiants = racine.getChildren("prosit");
+        String concat_anim = "";
+        //On crée un Iterator sur notre liste
+        Iterator i = listEtudiants.iterator();
+        while(i.hasNext())
+        {
+           //On recrée l'Element courant à chaque tour de boucle afin de
+           //pouvoir utiliser les méthodes propres aux Element comme :
+           //sélectionner un nœud fils, modifier du texte, etc...
+           Element courant = (Element)i.next();
+           
+           concat_anim = concat_anim + courant.getChild("animateur").getText();
+           //On affiche le nom de l’élément courant
+           //System.out.println(courant.getChild("animateur").getText());
+        }
+        return concat_anim;
     }
     
-    public void affiche_secretaire()
+    public String list_secretaire()
     {
-       //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
-       List listEtudiants = racine.getChildren("prosit");
-
-       //On crée un Iterator sur notre liste
-       Iterator i = listEtudiants.iterator();
-       while(i.hasNext())
-       {
-          //On recrée l'Element courant à chaque tour de boucle afin de
-          //pouvoir utiliser les méthodes propres aux Element comme :
-          //sélectionner un nœud fils, modifier du texte, etc...
-          Element courant = (Element)i.next();
-          //On affiche le nom de l’élément courant
-          System.out.println(courant.getChild("secretaire").getText());
-       }
+        //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
+        List listEtudiants = racine.getChildren("prosit");
+        String concat_secre = "";
+        //On crée un Iterator sur notre liste
+        Iterator i = listEtudiants.iterator();
+        while(i.hasNext())
+        {
+           //On recrée l'Element courant à chaque tour de boucle afin de
+           //pouvoir utiliser les méthodes propres aux Element comme :
+           //sélectionner un nœud fils, modifier du texte, etc...
+           Element courant = (Element)i.next();
+           
+           concat_secre = concat_secre + courant.getChild("secretaire").getText();
+           //On affiche le nom de l’élément courant
+           //System.out.println(courant.getChild("animateur").getText());
+        }
+        return concat_secre;
     }
     
-    public void affiche_scribe()
+    public String list_scribe()
     {
-       //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
-       List listEtudiants = racine.getChildren("prosit");
-
-       //On crée un Iterator sur notre liste
-       Iterator i = listEtudiants.iterator();
-       while(i.hasNext())
-       {
-          //On recrée l'Element courant à chaque tour de boucle afin de
-          //pouvoir utiliser les méthodes propres aux Element comme :
-          //sélectionner un nœud fils, modifier du texte, etc...
-          Element courant = (Element)i.next();
-          //On affiche le nom de l’élément courant
-          System.out.println(courant.getChild("scribe").getText());
-       }
+        //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
+        List listEtudiants = racine.getChildren("prosit");
+        String concat_scribe = "";
+        //On crée un Iterator sur notre liste
+        Iterator i = listEtudiants.iterator();
+        while(i.hasNext())
+        {
+           //On recrée l'Element courant à chaque tour de boucle afin de
+           //pouvoir utiliser les méthodes propres aux Element comme :
+           //sélectionner un nœud fils, modifier du texte, etc...
+           Element courant = (Element)i.next();
+           
+           concat_scribe = concat_scribe + courant.getChild("scribe").getText();
+           //On affiche le nom de l’élément courant
+           //System.out.println(courant.getChild("animateur").getText());
+        }
+        return concat_scribe;
     }
     
-    public void affiche_gestionnaire()
+    public String list_gestionnaire()
     {
-       //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
-       List listEtudiants = racine.getChildren("prosit");
-
-       //On crée un Iterator sur notre liste
-       Iterator i = listEtudiants.iterator();
-       while(i.hasNext())
-       {
-          //On recrée l'Element courant à chaque tour de boucle afin de
-          //pouvoir utiliser les méthodes propres aux Element comme :
-          //sélectionner un nœud fils, modifier du texte, etc...
-          Element courant = (Element)i.next();
-          //On affiche le nom de l’élément courant
-          System.out.println(courant.getChild("gestionnaire").getText());
-       }
+        //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
+        List listEtudiants = racine.getChildren("prosit");
+        String concat_gest = "";
+        //On crée un Iterator sur notre liste
+        Iterator i = listEtudiants.iterator();
+        while(i.hasNext())
+        {
+           //On recrée l'Element courant à chaque tour de boucle afin de
+           //pouvoir utiliser les méthodes propres aux Element comme :
+           //sélectionner un nœud fils, modifier du texte, etc...
+           Element courant = (Element)i.next();
+           
+           concat_gest = concat_gest + courant.getChild("gestionnaire").getText();
+           //On affiche le nom de l’élément courant
+           //System.out.println(courant.getChild("animateur").getText());
+        }
+        return concat_gest;
     }
 
     public void affiche_XML()
@@ -179,8 +195,8 @@ public class XML {
             save_tab[e][7] = courant.getChild("gestionnaire").getText();
             
             //On affiche le nom de l’élément courant
-            /*System.out.println(courant.getChild("animateur").getText() + " " + courant.getChild("secretaire").getText() + " " +
-                    courant.getChild("scribe").getText() + " " + courant.getChild("gestionnaire").getText());*/
+            System.out.println(courant.getChild("animateur").getText() + " " + courant.getChild("secretaire").getText() + " " +
+                    courant.getChild("scribe").getText() + " " + courant.getChild("gestionnaire").getText());
             e++;
          }
     }
@@ -200,8 +216,9 @@ public class XML {
         return 0;
     }
     
-    public String view_nb_save_tab() {
+    public String last_nb_save_tab() {
         int max = ((racine.getContentSize() - 1) / 2);
+        //System.out.println(save_tab[max-1][0] + "," + save_tab[max-1][2] + "," + save_tab[max-1][4] + "," + save_tab[max-1][6]);
         return save_tab[max-1][0] + "," + save_tab[max-1][2] + "," + save_tab[max-1][4] + "," + save_tab[max-1][6];
     }
     
@@ -227,6 +244,118 @@ public class XML {
         return "";
     }
 
+    public int freq_anim(int nb_name) {
+        //System.out.println(StringUtils.countMatches(list_animateur(), nb_to_name(nb_name)));
+        return StringUtils.countMatches(list_animateur(), nb_to_name(nb_name));
+    }
+    
+    public int freq_secret(int nb_name) {
+        //System.out.println(StringUtils.countMatches(list_animateur(), nb_to_name(nb_name)));
+        return StringUtils.countMatches(list_secretaire(), nb_to_name(nb_name));
+    }
+    
+    public int freq_scribe(int nb_name) {
+        //System.out.println(StringUtils.countMatches(list_animateur(), nb_to_name(nb_name)));
+        return StringUtils.countMatches(list_scribe(), nb_to_name(nb_name));
+    }
+    
+    public int freq_gest(int nb_name) {
+        //System.out.println(StringUtils.countMatches(list_animateur(), nb_to_name(nb_name)));
+        return StringUtils.countMatches(list_gestionnaire(), nb_to_name(nb_name));
+    }
+    
+    public int moins_anim() {
+        String[][] comp = new String[12][2];
+
+        for(int i = 0; i < 12; i++) {
+            comp[i][0] = Integer.toString(freq_anim(i));
+            comp[i][1] = data[i];
+        }
+        
+        Arrays.sort(comp, new Comparator<String[]>() {
+            @Override
+            public int compare(final String[] entry1, final String[] entry2) {
+                final String time1 = entry1[0];
+                final String time2 = entry2[0];
+                return time1.compareTo(time2);
+            }
+        });
+        
+        String rep = comp[0][1];
+        int rep_int = name_to_nb(rep);
+        System.out.println("Moins Animateur = "+rep+" / Numéro = "+rep_int);
+        return rep_int;
+    }
+    
+    public int moins_secret() {
+        String[][] comp = new String[12][2];
+
+        for(int i = 0; i < 12; i++) {
+            comp[i][0] = Integer.toString(freq_secret(i));
+            comp[i][1] = data[i];
+        }
+        
+        Arrays.sort(comp, new Comparator<String[]>() {
+            @Override
+            public int compare(final String[] entry1, final String[] entry2) {
+                final String time1 = entry1[0];
+                final String time2 = entry2[0];
+                return time1.compareTo(time2);
+            }
+        });
+        
+        String rep = comp[0][1];
+        int rep_int = name_to_nb(rep);
+        System.out.println("Moins Secrétaire = "+rep+" / Numéro = "+rep_int);
+        return rep_int;
+    }
+    
+    public int moins_scribe() {
+        String[][] comp = new String[12][2];
+
+        for(int i = 0; i < 12; i++) {
+            comp[i][0] = Integer.toString(freq_scribe(i));
+            comp[i][1] = data[i];
+        }
+        
+        Arrays.sort(comp, new Comparator<String[]>() {
+            @Override
+            public int compare(final String[] entry1, final String[] entry2) {
+                final String time1 = entry1[0];
+                final String time2 = entry2[0];
+                return time1.compareTo(time2);
+            }
+        });
+        
+        String rep = comp[0][1];
+        int rep_int = name_to_nb(rep);
+        System.out.println("Moins Scribe = "+rep+" / Numéro = "+rep_int);
+        return rep_int;
+    }
+    
+    public int moins_gest() {
+        String[][] comp = new String[12][2];
+
+        for(int i = 0; i < 12; i++) {
+            comp[i][0] = Integer.toString(freq_gest(i));
+            comp[i][1] = data[i];
+        }
+        
+        Arrays.sort(comp, new Comparator<String[]>() {
+            @Override
+            public int compare(final String[] entry1, final String[] entry2) {
+                final String time1 = entry1[0];
+                final String time2 = entry2[0];
+                return time1.compareTo(time2);
+            }
+        });
+        
+        String rep = comp[0][1];
+        int rep_int = name_to_nb(rep);
+        System.out.println("Moins Gestionnaire = "+rep+" / Numéro = "+rep_int);
+        return rep_int;
+    }
+    
     public void enregistre(String fichier)
     {
        try

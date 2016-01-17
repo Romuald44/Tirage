@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <personnes>
   <prosit classe="P1">
-    <animateur></animateur>
-    <secretaire></secretaire>
-    <scribe></scribe>
-    <gestionnaire></gestionnaire>
+    <animateur />
+    <secretaire />
+    <scribe />
+    <gestionnaire />
   </prosit>
   <prosit classe="P2">
     <animateur>Clement</animateur>
@@ -19,10 +19,10 @@
     <gestionnaire>Guillaume</gestionnaire>
   </prosit>
   <prosit classe="P4">
-    <animateur></animateur>
-    <secretaire></secretaire>
-    <scribe></scribe>
-    <gestionnaire></gestionnaire>
+    <animateur />
+    <secretaire />
+    <scribe />
+    <gestionnaire />
   </prosit>
   <prosit classe="P5">
     <animateur>Paul</animateur>
@@ -55,10 +55,10 @@
     <gestionnaire>Clement</gestionnaire>
   </prosit>
   <prosit classe="P10">
-    <animateur></animateur>
-    <secretaire></secretaire>
-    <scribe></scribe>
-    <gestionnaire></gestionnaire>
+    <animateur />
+    <secretaire />
+    <scribe />
+    <gestionnaire />
   </prosit>
   <prosit classe="P11">
     <animateur>Fabien</animateur>

@@ -18,6 +18,7 @@ public class Fenetre extends JFrame {
     JButton b_secre = new JButton ("Secretaire");
     JButton b_scrib = new JButton ("Scribe");
     JButton b_gest = new JButton ("Gestionnaire");
+    JButton b_valide = new JButton ("Valider");
     JTextArea reponse = new JTextArea();
     XML iofile;
     
@@ -71,6 +72,7 @@ public class Fenetre extends JFrame {
         this.getContentPane().add(top, BorderLayout.NORTH);
         this.getContentPane().add(content, BorderLayout.WEST);
         this.getContentPane().add(panel_button, BorderLayout.EAST);
+        this.getContentPane().add(b_valide, BorderLayout.SOUTH);
         this.setVisible(true);
 
         button.addActionListener(new ActionListener(){
@@ -109,6 +111,12 @@ public class Fenetre extends JFrame {
         b_gest.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 reponse.setText(Tirage.gestionnaire());
+            }
+        });
+        
+        b_valide.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                iofile.add(Tirage.getanimateur(), Tirage.getsecretaire(), Tirage.getscribe(), Tirage.getgestionnaire());
             }
         });
     }

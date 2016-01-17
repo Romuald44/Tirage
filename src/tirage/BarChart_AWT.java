@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel; 
-import org.jfree.chart.JFreeChart; 
+import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset; 
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -33,13 +33,17 @@ public class BarChart_AWT extends JFrame
         ChartPanel chartPanel = new ChartPanel( barChart );
         chartPanel.setPreferredSize(new java.awt.Dimension( 560 , 367 ) );  
         this.setTitle(applicationTitle);
-        this.setContentPane( chartPanel );
         this.dispose();
                 
         JPanel top = new JPanel();
+        JPanel body = new JPanel();
+        
+        body.add(chartPanel);
         top.add(prec);
         top.add(next);
+        
         this.getContentPane().add(top, BorderLayout.NORTH);
+        this.getContentPane().add(body, BorderLayout.CENTER);
         
         prec.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {

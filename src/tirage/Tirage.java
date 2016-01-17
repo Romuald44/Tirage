@@ -21,8 +21,11 @@ public class Tirage {
     private static String name_tirage[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
     
     public static void main(String[] args) {
-        frame = new Fenetre();
-        iofile = new Fichier();
+        XML test = new XML();
+        test.save_tab();
+        test.view_nb_save_tab();
+        //frame = new Fenetre();
+        //iofile = new Fichier();
     }
     
     public static String selection() {

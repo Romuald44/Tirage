@@ -17,11 +17,13 @@ import java.util.Iterator;
 public class XML {
 
     static Element racine;
-
-   //On crée un nouveau Document JDOM basé sur la racine que l'on vient de créer
+    static String data[] = {"Fabien", "Romain", "Florent" , "Guillaume", "Romuald", "Clement", "Alexandre" , "Eva", "Reynald", "Luc", "Quentin" , "Paul"};
+    static String[][] save_tab;
+    
+    //On crée un nouveau Document JDOM basé sur la racine que l'on vient de créer
     static org.jdom2.Document document = new Document(racine);
 
-    public XML(String[] args)
+    public XML()
     {
         //On crée une instance de SAXBuilder
        SAXBuilder sxb = new SAXBuilder();
@@ -38,7 +40,7 @@ public class XML {
 
     }
 
-    void add(String prosit, String anim, String secre, String scrib, String gest)
+    public void add(String prosit, String anim, String secre, String scrib, String gest)
     {
          Element etudiant = new Element("prosit");
          racine.addContent(etudiant);
@@ -66,7 +68,7 @@ public class XML {
          etudiant.addContent(gestionnaire);
     }
 
-    void afficheALL()
+    public void affiche_animateur()
     {
        //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
        List listEtudiants = racine.getChildren("prosit");
@@ -83,8 +85,62 @@ public class XML {
           System.out.println(courant.getChild("animateur").getText());
        }
     }
+    
+    public void affiche_secretaire()
+    {
+       //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
+       List listEtudiants = racine.getChildren("prosit");
 
-    void affiche()
+       //On crée un Iterator sur notre liste
+       Iterator i = listEtudiants.iterator();
+       while(i.hasNext())
+       {
+          //On recrée l'Element courant à chaque tour de boucle afin de
+          //pouvoir utiliser les méthodes propres aux Element comme :
+          //sélectionner un nœud fils, modifier du texte, etc...
+          Element courant = (Element)i.next();
+          //On affiche le nom de l’élément courant
+          System.out.println(courant.getChild("secretaire").getText());
+       }
+    }
+    
+    public void affiche_scribe()
+    {
+       //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
+       List listEtudiants = racine.getChildren("prosit");
+
+       //On crée un Iterator sur notre liste
+       Iterator i = listEtudiants.iterator();
+       while(i.hasNext())
+       {
+          //On recrée l'Element courant à chaque tour de boucle afin de
+          //pouvoir utiliser les méthodes propres aux Element comme :
+          //sélectionner un nœud fils, modifier du texte, etc...
+          Element courant = (Element)i.next();
+          //On affiche le nom de l’élément courant
+          System.out.println(courant.getChild("scribe").getText());
+       }
+    }
+    
+    public void affiche_gestionnaire()
+    {
+       //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
+       List listEtudiants = racine.getChildren("prosit");
+
+       //On crée un Iterator sur notre liste
+       Iterator i = listEtudiants.iterator();
+       while(i.hasNext())
+       {
+          //On recrée l'Element courant à chaque tour de boucle afin de
+          //pouvoir utiliser les méthodes propres aux Element comme :
+          //sélectionner un nœud fils, modifier du texte, etc...
+          Element courant = (Element)i.next();
+          //On affiche le nom de l’élément courant
+          System.out.println(courant.getChild("gestionnaire").getText());
+       }
+    }
+
+    public void affiche_XML()
     {
        try
        {
@@ -94,17 +150,93 @@ public class XML {
        }
        catch (java.io.IOException e){}
     }
+    
+    public void save_tab()
+    {
+        //On crée une List contenant tous les noeuds "etudiant" de l'Element racine
+         List listEtudiants = racine.getChildren("prosit");
 
-     void enregistre(String fichier)
-     {
-        try
-        {
-           //On utilise ici un affichage classique avec getPrettyFormat()
-           XMLOutputter sortie = new XMLOutputter(Format.getPrettyFormat());
-           //Remarquez qu'il suffit simplement de créer une instance de FileOutputStream
-           //avec en argument le nom du fichier pour effectuer la sérialisation.
-           sortie.output(document, new FileOutputStream(fichier));
+         //On crée un Iterator sur notre liste
+         Iterator i = listEtudiants.iterator();
+         save_tab = new String[((racine.getContentSize() - 1) / 2)][8];
+         int e = 0;
+         
+         while(i.hasNext())
+         {
+            //On recrée l'Element courant à chaque tour de boucle afin de
+            //pouvoir utiliser les méthodes propres aux Element comme :
+            //sélectionner un nœud fils, modifier du texte, etc...
+            Element courant = (Element)i.next();
+            
+            //Sauvegarde des noms dans un tableau
+            save_tab[e][0] = name_to_nb_string(courant.getChild("animateur").getText());
+            save_tab[e][1] = courant.getChild("animateur").getText();
+            save_tab[e][2] = name_to_nb_string(courant.getChild("secretaire").getText());
+            save_tab[e][3] = courant.getChild("secretaire").getText();
+            save_tab[e][4] = name_to_nb_string(courant.getChild("scribe").getText());
+            save_tab[e][5] = courant.getChild("scribe").getText();
+            save_tab[e][6] = name_to_nb_string(courant.getChild("gestionnaire").getText());
+            save_tab[e][7] = courant.getChild("gestionnaire").getText();
+            
+            //On affiche le nom de l’élément courant
+            /*System.out.println(courant.getChild("animateur").getText() + " " + courant.getChild("secretaire").getText() + " " +
+                    courant.getChild("scribe").getText() + " " + courant.getChild("gestionnaire").getText());*/
+            e++;
+         }
+    }
+    
+    public String nb_to_name(int number) {
+        return data[number];
+    }
+    
+    public int name_to_nb(String nom) {
+        int i = 1;
+        for (String s : data) {
+            if(s.equals(nom)) {
+                return i;
+            }
+            i++;
         }
-        catch (java.io.IOException e){}
-     }
+        return 0;
+    }
+    
+    public String view_nb_save_tab() {
+        int max = ((racine.getContentSize() - 1) / 2);
+        return save_tab[max-1][0] + "," + save_tab[max-1][2] + "," + save_tab[max-1][4] + "," + save_tab[max-1][6];
+    }
+    
+    //Pas utile pour le moment
+    public void view_save_tab()
+    {
+        int max = ((racine.getContentSize() - 1) / 2);
+        
+        for (int i=0; i < max; i++) {
+            System.out.println(save_tab[i][0] + " " + save_tab[i][1] + " " + save_tab[i][2] + " " + save_tab[i][3] + " " +
+                    save_tab[i][4] + " " + save_tab[i][5] + " " + save_tab[i][6] + " " + save_tab[i][7]);
+        }
+    }
+    
+    public String name_to_nb_string(String nom) {
+        int i = 1;
+        for (String s : data) {
+            if(s.equals(nom)) {
+                return Integer.toString(i);
+            }
+            i++;
+        }
+        return "";
+    }
+
+    public void enregistre(String fichier)
+    {
+       try
+       {
+          //On utilise ici un affichage classique avec getPrettyFormat()
+          XMLOutputter sortie = new XMLOutputter(Format.getPrettyFormat());
+          //Remarquez qu'il suffit simplement de créer une instance de FileOutputStream
+          //avec en argument le nom du fichier pour effectuer la sérialisation.
+          sortie.output(document, new FileOutputStream(fichier));
+       }
+       catch (java.io.IOException e){}
+    }
 }

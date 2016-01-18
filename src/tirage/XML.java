@@ -86,7 +86,7 @@ public class XML {
         Element scribe = new Element("scribe");
         Element gestionnaire = new Element("gestionnaire");
         
-        System.out.println(anim + " " + secre + " " + scrib + " " + gest);
+        System.out.println("Ajout dans le XML de "+anim + " " + secre + " " + scrib + " " + gest);
         
         animateur.setText(anim);
         secretaire.setText(secre);

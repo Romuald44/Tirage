@@ -136,8 +136,12 @@ public class Fenetre extends JFrame {
                 
                 if(Integer.parseInt(receive[0]) != Tirage.getanimateur() && Integer.parseInt(receive[1]) != Tirage.getsecretaire() &&
                         Integer.parseInt(receive[2]) != Tirage.getscribe() && Integer.parseInt(receive[3]) != Tirage.getgestionnaire()) {
-                    iofile.add(iofile.nb_to_name(Tirage.getanimateur()), iofile.nb_to_name(Tirage.getsecretaire()),
-                            iofile.nb_to_name(Tirage.getscribe()), iofile.nb_to_name(Tirage.getgestionnaire()));
+                    
+                    System.out.println(Tirage.nom(Tirage.getanimateur()) + " " + Tirage.nom(Tirage.getsecretaire()) + " " + 
+                            Tirage.nom(Tirage.getscribe()) + " " + Tirage.nom(Tirage.getgestionnaire()));
+                    
+                    iofile.add(Tirage.nom(Tirage.getanimateur()), Tirage.nom(Tirage.getsecretaire()),
+                            Tirage.nom(Tirage.getscribe()), Tirage.nom(Tirage.getgestionnaire()));
                 }
             }
         });

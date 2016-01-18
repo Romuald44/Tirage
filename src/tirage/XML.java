@@ -43,6 +43,20 @@ public class XML {
        racine = document.getRootElement();
 
     }
+    
+    public void read() {
+        SAXBuilder sxb = new SAXBuilder();
+        try
+        {
+           //On crée un nouveau document JDOM avec en argument le fichier XML
+           //Le parsing est terminé ;)
+           document = sxb.build(new File("sauvegarde.xml"));
+        }
+        catch(Exception e){}
+
+        //On initialise un nouvel élément racine avec l'élément racine du document.
+        racine = document.getRootElement();
+    }
 
     public void add(String anim, String secre, String scrib, String gest)
     {

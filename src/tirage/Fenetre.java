@@ -14,6 +14,7 @@ import javax.swing.JTextArea;
 public class Fenetre extends JFrame {
     JButton button = new JButton ("Tirage");
     JButton stats = new JButton ("Stats");
+    JButton stats_total = new JButton ("Stats Total");
     JButton b_anim = new JButton ("Animateur");
     JButton b_secre = new JButton ("Secretaire");
     JButton b_scrib = new JButton ("Scribe");
@@ -22,11 +23,12 @@ public class Fenetre extends JFrame {
     JTextArea reponse = new JTextArea();
     XML iofile;
     
-    private static BarChart_Total chart;
+    private static BarChart_Total chart_total;
+    private static BarChart_AWT chart;
     
     public Fenetre() {
         this.setTitle("Tirage");
-        this.setSize(350, 250);
+        this.setSize(350, 300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         
@@ -40,6 +42,7 @@ public class Fenetre extends JFrame {
 
         top.add(button);
         top.add(stats);
+        top.add(stats_total);
         content.add(reponse);
         content.setBackground(Color.WHITE);
 
@@ -83,10 +86,19 @@ public class Fenetre extends JFrame {
 
         stats.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-                chart = new BarChart_Total("Statistiques" , "Fréquence Animateur");
+                chart = new BarChart_AWT("Statistiques" , iofile.nb_to_name(0), 0);
                 chart.pack();
                 chart.setLocationRelativeTo(null);
                 chart.setVisible( true );
+            }
+        });
+        
+        stats_total.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                chart_total = new BarChart_Total("Statistiques" , "Fréquence Animateur", 0);
+                chart_total.pack();
+                chart_total.setLocationRelativeTo(null);
+                chart_total.setVisible( true );
             }
         });
 

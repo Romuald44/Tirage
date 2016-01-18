@@ -5,8 +5,8 @@ package tirage;
  */
 public class Tirage {
 
-    private static Fenetre frame = new Fenetre();
-    private static XML xml = new XML();
+    private static Fenetre frame;
+    private static XML xml;
     static int animateur;
     static int secretaire;
     static int scribe;
@@ -14,10 +14,14 @@ public class Tirage {
     private static String[] receive = null;
     
     public static void main(String[] args) {
+        frame = new Fenetre();
+        xml = new XML();
         xml.save_tab();
     }
     
     public static String selection() {
+        xml.read();
+        xml.save_tab();
         animateur = xml.moins_anim();
         secretaire = xml.moins_secret();
         scribe = xml.moins_scribe();
@@ -117,19 +121,19 @@ public class Tirage {
         return "Animateur => "+nom(anim)+"\n"+"Secrétaire => "+nom(secret)+"\n"+"Scribe => "+nom(scrib)+"\n"+"Gestionnaire => "+nom(gestio);
     }
     
-    public static String getanimateur() {
-        return nom(animateur);
+    public static int getanimateur() {
+        return animateur;
     }
     
-    public static String getsecretaire() {
-        return nom(secretaire);
+    public static int getsecretaire() {
+        return secretaire;
     }
     
-    public static String getscribe() {
-       return nom(scribe);
+    public static int getscribe() {
+       return scribe;
     }
     
-    public static String getgestionnaire() {
-        return nom(gestionnaire);
+    public static int getgestionnaire() {
+        return gestionnaire;
     }
 }

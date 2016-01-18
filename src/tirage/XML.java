@@ -297,14 +297,16 @@ public class XML {
         });
         
         String rep = comp[0][1];
-        //test(comp);
         int rep_int = name_to_nb(rep);
         System.out.println("Moins Animateur = "+rep+" / Numéro = "+rep_int);
         return rep_int;
     }
     
-    public void test(String[][] strArray) { 
-        System.out.println(strArray[0][1]);
+    public void test(String[][] strArray) {
+        for(int i = 0; i < 12; i++) {
+            System.out.println(strArray[i][0]);
+            System.out.println(strArray[i][1]);
+       }
     }
     
     public int moins_secret() {

@@ -22,11 +22,11 @@ public class Fenetre extends JFrame {
     JTextArea reponse = new JTextArea();
     XML iofile;
     
-    private static BarChart_AWT chart;
+    private static BarChart_Total chart;
     
     public Fenetre() {
         this.setTitle("Tirage");
-        this.setSize(350, 200);
+        this.setSize(350, 250);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         
@@ -83,7 +83,7 @@ public class Fenetre extends JFrame {
 
         stats.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-                chart = new BarChart_AWT("Statistiques" , iofile.nb_to_name(0), 0);
+                chart = new BarChart_Total("Statistiques" , "Fréquence Animateur");
                 chart.pack();
                 chart.setLocationRelativeTo(null);
                 chart.setVisible( true );

@@ -35,7 +35,7 @@ public class XML {
        {
           //On crée un nouveau document JDOM avec en argument le fichier XML
           //Le parsing est terminé ;)
-          document = sxb.build(new File("sauvegarde.xml"));
+          document = sxb.build(new File("lib/sauvegarde.xml"));
        }
        catch(Exception e){}
 
@@ -50,7 +50,7 @@ public class XML {
         {
            //On crée un nouveau document JDOM avec en argument le fichier XML
            //Le parsing est terminé ;)
-           document = sxb.build(new File("sauvegarde.xml"));
+           document = sxb.build(new File("lib/sauvegarde.xml"));
         }
         catch(Exception e){}
 
@@ -98,7 +98,7 @@ public class XML {
         etudiant.addContent(scribe);
         etudiant.addContent(gestionnaire);
         
-        enregistre("sauvegarde.xml");
+        enregistre("lib/sauvegarde.xml");
     }
 
     public String list_animateur()

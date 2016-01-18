@@ -114,34 +114,4 @@
     <scribe>Alexandre</scribe>
     <gestionnaire>Fabien</gestionnaire>
   </prosit>
-  <prosit classe="P20">
-    <animateur>Florent</animateur>
-    <secretaire>Luc</secretaire>
-    <scribe>Quentin</scribe>
-    <gestionnaire>Romuald</gestionnaire>
-  </prosit>
-  <prosit classe="P21">
-    <animateur>Fabien</animateur>
-    <secretaire>Reynald</secretaire>
-    <scribe>Romain</scribe>
-    <gestionnaire>Alexandre</gestionnaire>
-  </prosit>
-  <prosit classe="P22">
-    <animateur>Clement</animateur>
-    <secretaire>Florent</secretaire>
-    <scribe>Romuald</scribe>
-    <gestionnaire>Paul</gestionnaire>
-  </prosit>
-  <prosit classe="P23">
-    <animateur>Romain</animateur>
-    <secretaire>Reynald</secretaire>
-    <scribe>Fabien</scribe>
-    <gestionnaire>Guillaume</gestionnaire>
-  </prosit>
-  <prosit classe="P24">
-    <animateur>Florent</animateur>
-    <secretaire>Clement</secretaire>
-    <scribe>Romuald</scribe>
-    <gestionnaire>Luc</gestionnaire>
-  </prosit>
 </personnes>

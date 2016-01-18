@@ -121,19 +121,19 @@ public class Tirage {
         return "Animateur => "+nom(anim)+"\n"+"Secrétaire => "+nom(secret)+"\n"+"Scribe => "+nom(scrib)+"\n"+"Gestionnaire => "+nom(gestio);
     }
     
-    public static String getanimateur() {
-        return nom(animateur);
+    public static int getanimateur() {
+        return animateur;
     }
     
-    public static String getsecretaire() {
-        return nom(secretaire);
+    public static int getsecretaire() {
+        return secretaire;
     }
     
-    public static String getscribe() {
-       return nom(scribe);
+    public static int getscribe() {
+       return scribe;
     }
     
-    public static String getgestionnaire() {
-        return nom(gestionnaire);
+    public static int getgestionnaire() {
+        return gestionnaire;
     }
 }

@@ -114,4 +114,10 @@
     <scribe>Alexandre</scribe>
     <gestionnaire>Fabien</gestionnaire>
   </prosit>
+  <prosit classe="P20">
+    <animateur>Florent</animateur>
+    <secretaire>Clement</secretaire>
+    <scribe>Quentin</scribe>
+    <gestionnaire>Romuald</gestionnaire>
+  </prosit>
 </personnes>

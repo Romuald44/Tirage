@@ -118,7 +118,7 @@ public class BarChart_Total extends JFrame
          final DefaultCategoryDataset dataset = 
          new DefaultCategoryDataset( );
          
-         for(int i=1;i<12;i++) {
+         for(int i=0;i<12;i++) {
             dataset.addValue( iofile.freq_anim(i) , iofile.nb_to_name(i) , animateur );
          }
 
@@ -131,7 +131,7 @@ public class BarChart_Total extends JFrame
          final DefaultCategoryDataset dataset = 
          new DefaultCategoryDataset( );
          
-         for(int i=1;i<12;i++) {
+         for(int i=0;i<12;i++) {
             dataset.addValue( iofile.freq_secret(i) , iofile.nb_to_name(i) , secretaire );
          }
 
@@ -144,7 +144,7 @@ public class BarChart_Total extends JFrame
          final DefaultCategoryDataset dataset = 
          new DefaultCategoryDataset( );
          
-         for(int i=1;i<12;i++) {
+         for(int i=0;i<12;i++) {
             dataset.addValue( iofile.freq_scribe(i) , iofile.nb_to_name(i) , scribe );
          }
 
@@ -157,7 +157,7 @@ public class BarChart_Total extends JFrame
          final DefaultCategoryDataset dataset = 
          new DefaultCategoryDataset( );
          
-         for(int i=1;i<12;i++) {
+         for(int i=0;i<12;i++) {
             dataset.addValue( iofile.freq_gest(i) , iofile.nb_to_name(i) , gestionnaire );
          }
 

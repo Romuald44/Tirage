@@ -12,6 +12,10 @@ public class Tirage {
     static int scribe;
     static int gestionnaire;
     private static String[] receive = null;
+    static String[][] test_anim = null;
+    static String[][] test_secret = null;
+    static String[][] test_scribe = null;
+    static String[][] test_gest = null;
     
     public static void main(String[] args) {
         frame = new Fenetre();
@@ -19,17 +23,93 @@ public class Tirage {
         xml.save_tab();
     }
     
+    public static int tab_moin_anim() {
+        test_anim = xml.moins_anim();
+        
+        return Integer.parseInt(test_anim[0][1]);
+    }
+    
+    public static int tab_moin_secret() {
+        test_secret = xml.moins_secret();
+        
+        String secret = "";
+                
+        if(test_secret[0][1] == test_anim[0][1]) {
+            secret = test_secret[1][1];
+        }
+        else if(test_secret[1][1] == test_anim[1][1]) {
+            secret = test_secret[2][1];
+        }
+        else if(test_secret[2][1] == test_anim[2][1]) {
+            secret = test_secret[3][1];
+        }
+        else {
+            secret = test_secret[0][1];
+        }
+        
+        return Integer.parseInt(secret);
+    }
+    
+    public static int tab_moin_scribe() {
+        test_scribe = xml.moins_scribe();
+        
+        String scribe = "";
+        
+        if(test_scribe[0][1].equals(test_anim[0][1]) || test_scribe[0][1].equals(test_secret[0][1])) {
+            scribe = test_scribe[1][1];
+        }
+        else if(test_scribe[1][1].equals(test_anim[1][1]) || test_scribe[1][1].equals(test_secret[1][1])) {
+            scribe = test_scribe[2][1];
+        }
+        else if(test_scribe[2][1].equals(test_anim[2][1]) || test_scribe[2][1].equals(test_secret[2][1])) {
+            scribe = test_scribe[3][1];
+        }
+        else {
+            scribe = test_scribe[0][1];
+        }
+        
+        return Integer.parseInt(scribe);
+    }
+    
+    public static int tab_moin_gest() {
+        test_gest = xml.moins_gest();
+        
+        String gest = "";
+        
+        if(test_gest[0][1].equals(test_anim[0][1]) || test_gest[0][1].equals(test_secret[0][1]) || test_gest[0][1].equals(test_scribe[0][1])) {
+            gest = test_gest[1][1];
+        }
+        else if(test_gest[1][1].equals(test_anim[1][1]) || test_gest[1][1].equals(test_secret[1][1]) || test_gest[1][1].equals(test_scribe[1][1])) {
+            gest = test_gest[2][1];
+        }
+        else if(test_gest[2][1].equals(test_anim[2][1]) || test_gest[2][1].equals(test_secret[2][1]) || test_gest[2][1].equals(test_scribe[2][1])) {
+            gest = test_gest[3][1];
+        }
+        else {
+            gest = test_gest[0][1];
+        }
+        
+        return Integer.parseInt(gest);
+    }
+    
     public static String selection() {
         xml.read();
         xml.save_tab();
-        animateur = xml.moins_anim();
-        secretaire = xml.moins_secret();
-        scribe = xml.moins_scribe();
-        gestionnaire = xml.moins_gest();
+        
+        animateur = tab_moin_anim()+1;
+        System.out.println(animateur);
+        
+        secretaire = tab_moin_secret()+1;
+        System.out.println(secretaire);
+        
+        scribe = tab_moin_scribe()+1;
+        System.out.println(scribe);
+        
+        gestionnaire = tab_moin_gest()+1;
+        System.out.println(gestionnaire);
         
         receive = xml.last_nb_save_tab().split(",");
         System.out.println(receive[0]+" "+receive[1]+" "+receive[2]+" "+receive[3]);
-        
         
         while(animateur == Integer.parseInt(receive[0]) || animateur == Integer.parseInt(receive[1]) ||
                 animateur == Integer.parseInt(receive[2]) || animateur == Integer.parseInt(receive[3])) {

@@ -293,12 +293,12 @@ public class XML {
         return StringUtils.countMatches(list_gestionnaire(), nb_to_name(nb_name));
     }
     
-    public int moins_anim() {
+    public String[][] moins_anim() {
         String[][] comp = new String[12][2];
 
         for(int i = 0; i < 12; i++) {
             comp[i][0] = Integer.toString(freq_anim(i));
-            comp[i][1] = data[i];
+            comp[i][1] = Integer.toString(i);//data[i];
         }
         
         Arrays.sort(comp, new Comparator<String[]>() {
@@ -312,8 +312,8 @@ public class XML {
         
         String rep = comp[0][1];
         int rep_int = name_to_nb(rep);
-        System.out.println("Moins Animateur = "+rep+" / Numéro = "+rep_int);
-        return rep_int;
+        System.out.println("Moins Animateur = "+rep+" / Numéro = "+rep_int);//Moins animateur dans l'ordre du tableau
+        return comp;
     }
     
     public void test(String[][] strArray) {
@@ -323,12 +323,12 @@ public class XML {
        }
     }
     
-    public int moins_secret() {
+    public String[][] moins_secret() {
         String[][] comp = new String[12][2];
 
         for(int i = 0; i < 12; i++) {
             comp[i][0] = Integer.toString(freq_secret(i));
-            comp[i][1] = data[i];
+            comp[i][1] = Integer.toString(i);//data[i];
         }
         
         Arrays.sort(comp, new Comparator<String[]>() {
@@ -343,15 +343,15 @@ public class XML {
         String rep = comp[0][1];
         int rep_int = name_to_nb(rep);
         System.out.println("Moins Secrétaire = "+rep+" / Numéro = "+rep_int);
-        return rep_int;
+        return comp;
     }
     
-    public int moins_scribe() {
+    public String[][] moins_scribe() {
         String[][] comp = new String[12][2];
 
         for(int i = 0; i < 12; i++) {
             comp[i][0] = Integer.toString(freq_scribe(i));
-            comp[i][1] = data[i];
+            comp[i][1] = Integer.toString(i);//data[i];
         }
         
         Arrays.sort(comp, new Comparator<String[]>() {
@@ -366,15 +366,15 @@ public class XML {
         String rep = comp[0][1];
         int rep_int = name_to_nb(rep);
         System.out.println("Moins Scribe = "+rep+" / Numéro = "+rep_int);
-        return rep_int;
+        return comp;
     }
     
-    public int moins_gest() {
+    public String[][] moins_gest() {
         String[][] comp = new String[12][2];
 
         for(int i = 0; i < 12; i++) {
             comp[i][0] = Integer.toString(freq_gest(i));
-            comp[i][1] = data[i];
+            comp[i][1] = Integer.toString(i);//data[i];
         }
         
         Arrays.sort(comp, new Comparator<String[]>() {
@@ -389,7 +389,7 @@ public class XML {
         String rep = comp[0][1];
         int rep_int = name_to_nb(rep);
         System.out.println("Moins Gestionnaire = "+rep+" / Numéro = "+rep_int);
-        return rep_int;
+        return comp;
     }
     
     public void enregistre(String fichier)

@@ -32,8 +32,8 @@ public class Tirage {
     public static int tab_moin_secret() {
         test_secret = xml.moins_secret();
         
-        String secret = "";
-                
+        String secret = test_secret[0][1];
+            
         if(test_secret[0][1] == test_anim[0][1]) {
             secret = test_secret[1][1];
         }
@@ -43,9 +43,6 @@ public class Tirage {
         else if(test_secret[2][1] == test_anim[2][1]) {
             secret = test_secret[3][1];
         }
-        else {
-            secret = test_secret[0][1];
-        }
         
         return Integer.parseInt(secret);
     }
@@ -53,7 +50,7 @@ public class Tirage {
     public static int tab_moin_scribe() {
         test_scribe = xml.moins_scribe();
         
-        String scribe = "";
+        String scribe = test_scribe[0][1];
         
         if(test_scribe[0][1].equals(test_anim[0][1]) || test_scribe[0][1].equals(test_secret[0][1])) {
             scribe = test_scribe[1][1];
@@ -64,9 +61,6 @@ public class Tirage {
         else if(test_scribe[2][1].equals(test_anim[2][1]) || test_scribe[2][1].equals(test_secret[2][1])) {
             scribe = test_scribe[3][1];
         }
-        else {
-            scribe = test_scribe[0][1];
-        }
         
         return Integer.parseInt(scribe);
     }
@@ -74,7 +68,7 @@ public class Tirage {
     public static int tab_moin_gest() {
         test_gest = xml.moins_gest();
         
-        String gest = "";
+        String gest = test_gest[0][1];
         
         if(test_gest[0][1].equals(test_anim[0][1]) || test_gest[0][1].equals(test_secret[0][1]) || test_gest[0][1].equals(test_scribe[0][1])) {
             gest = test_gest[1][1];
@@ -84,9 +78,6 @@ public class Tirage {
         }
         else if(test_gest[2][1].equals(test_anim[2][1]) || test_gest[2][1].equals(test_secret[2][1]) || test_gest[2][1].equals(test_scribe[2][1])) {
             gest = test_gest[3][1];
-        }
-        else {
-            gest = test_gest[0][1];
         }
         
         return Integer.parseInt(gest);

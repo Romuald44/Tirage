@@ -23,38 +23,37 @@ public class Tirage {
         xml.save_tab();
     }
     
-    public static int tab_moin_anim() {
+    public static void tab_moin_anim() {
         test_anim = xml.moins_anim();
         
         for(int i=0; i<12; i++) {
             System.out.println("Animateur = "+test_anim[i][1]+" Nombre = "+test_anim[i][0]);
         }
         
-        String result = test_anim[0][1];
+        animateur = Integer.parseInt(test_anim[0][1]);
         
         int incre=0;
         while(test_anim[incre][1].equals(receive[0]) || test_anim[incre][1].equals(receive[1]) ||
                 test_anim[incre][1].equals(receive[2]) || test_anim[incre][1].equals(receive[3])) {
-            result = test_anim[incre][1];
+            animateur = Integer.parseInt(test_anim[incre][1]);
             incre++;
         }
-        
-        return Integer.parseInt(result);
     }
     
-    public static int tab_moin_secret() {
+    public static void tab_moin_secret() {
         test_secret = xml.moins_secret();
         
         for(int i=0; i<12; i++) {
             System.out.println("Secrétaire = "+test_secret[i][1]+" Nombre = "+test_secret[i][0]);
         }
         
-        String secret = test_secret[0][1];
+        secretaire = Integer.parseInt(test_secret[0][1]);
         
         int incre=0;
         while(test_secret[incre][1].equals(receive[0]) || test_secret[incre][1].equals(receive[1]) ||
-                test_secret[incre][1].equals(receive[2]) || test_secret[incre][1].equals(receive[3])) {
-            secret = test_secret[incre][1];
+                test_secret[incre][1].equals(receive[2]) || test_secret[incre][1].equals(receive[3]) ||
+                secretaire == animateur) {
+            secretaire = Integer.parseInt(test_secret[incre][1]);
             incre++;
         }
             
@@ -67,23 +66,22 @@ public class Tirage {
         else if(test_secret[2][1] == test_anim[2][1]) {
             secret = test_secret[3][1];
         }*/
-        
-        return Integer.parseInt(secret);
     }
     
-    public static int tab_moin_scribe() {
+    public static void tab_moin_scribe() {
         test_scribe = xml.moins_scribe();
         
         for(int i=0; i<12; i++) {
             System.out.println("Scribe = "+test_scribe[i][1]+" Nombre = "+test_scribe[i][0]);
         }
         
-        String scribe = test_scribe[0][1];
+        scribe = Integer.parseInt(test_scribe[0][1]);
         
         int incre=0;
         while(test_scribe[incre][1].equals(receive[0]) || test_scribe[incre][1].equals(receive[1]) ||
-                test_scribe[incre][1].equals(receive[2]) || test_scribe[incre][1].equals(receive[3])) {
-            scribe = test_scribe[incre][1];
+                test_scribe[incre][1].equals(receive[2]) || test_scribe[incre][1].equals(receive[3]) ||
+                scribe == secretaire || scribe == animateur) {
+            scribe = Integer.parseInt(test_scribe[incre][1]);
             incre++;
         }
         /*if(test_scribe[0][1].equals(test_anim[0][1]) || test_scribe[0][1].equals(test_secret[0][1])) {
@@ -95,23 +93,22 @@ public class Tirage {
         else if(test_scribe[2][1].equals(test_anim[2][1]) || test_scribe[2][1].equals(test_secret[2][1])) {
             scribe = test_scribe[3][1];
         }*/
-        
-        return Integer.parseInt(scribe);
     }
     
-    public static int tab_moin_gest() {
+    public static void tab_moin_gest() {
         test_gest = xml.moins_gest();
         
         for(int i=0; i<12; i++) {
             System.out.println("Gestionnaire = "+test_gest[i][1]+" Nombre = "+test_gest[i][0]);
         }
         
-        String gest = test_gest[0][1];
+        gestionnaire = Integer.parseInt(test_gest[0][1]);
         
         int incre=0;
         while(test_gest[incre][1].equals(receive[0]) || test_gest[incre][1].equals(receive[1]) ||
-                test_gest[incre][1].equals(receive[2]) || test_gest[incre][1].equals(receive[3])) {
-            gest = test_gest[incre][1];
+                test_gest[incre][1].equals(receive[2]) || test_gest[incre][1].equals(receive[3]) ||
+                gestionnaire == scribe || gestionnaire == secretaire || gestionnaire == animateur) {
+            gestionnaire = Integer.parseInt(test_gest[incre][1]);
             incre++;
         }
         /*if(test_gest[0][1].equals(test_anim[0][1]) || test_gest[0][1].equals(test_secret[0][1]) || test_gest[0][1].equals(test_scribe[0][1])) {
@@ -123,8 +120,6 @@ public class Tirage {
         else if(test_gest[2][1].equals(test_anim[2][1]) || test_gest[2][1].equals(test_secret[2][1]) || test_gest[2][1].equals(test_scribe[2][1])) {
             gest = test_gest[3][1];
         }*/
-        
-        return Integer.parseInt(gest);
     }
     
     public static String selection() {
@@ -133,45 +128,20 @@ public class Tirage {
         
         receive = xml.last_nb_save_tab().split(",");
         
-        animateur = tab_moin_anim();
+        tab_moin_anim();
         System.out.println(animateur);
         
-        secretaire = tab_moin_secret();
+        tab_moin_secret();
         System.out.println(secretaire);
         
-        scribe = tab_moin_scribe();
+        tab_moin_scribe();
         System.out.println(scribe);
         
-        gestionnaire = tab_moin_gest();
+        tab_moin_gest();
         System.out.println(gestionnaire);
         
         System.out.println(receive[0]+" "+receive[1]+" "+receive[2]+" "+receive[3]);
         
-        /*while(animateur == Integer.parseInt(receive[0]) || animateur == Integer.parseInt(receive[1]) ||
-                animateur == Integer.parseInt(receive[2]) || animateur == Integer.parseInt(receive[3])) {
-            animateur = random();
-        }*/
-        
-        //System.out.println("Animateur => "+nom(animateur));
-        
-        /*while(secretaire == animateur || secretaire == Integer.parseInt(receive[0]) || secretaire == Integer.parseInt(receive[1]) ||
-                secretaire == Integer.parseInt(receive[2]) || secretaire == Integer.parseInt(receive[3])) {
-            secretaire = random();
-        }*/
-        //System.out.println("Secrétaire => "+nom(secretaire));
-        
-        /*while(scribe == animateur || scribe == secretaire || scribe == Integer.parseInt(receive[0]) || scribe == Integer.parseInt(receive[1]) ||
-                scribe == Integer.parseInt(receive[2]) || scribe == Integer.parseInt(receive[3])) {
-            scribe = random();
-        }*/
-        //System.out.println("Scribe => "+nom(scribe));
-        
-        /*while(gestionnaire == animateur || gestionnaire == secretaire || gestionnaire == scribe ||
-                gestionnaire == Integer.parseInt(receive[0]) || gestionnaire == Integer.parseInt(receive[1]) ||
-                gestionnaire == Integer.parseInt(receive[2]) || gestionnaire == Integer.parseInt(receive[3])) {
-            gestionnaire = random();
-        }*/
-        //System.out.println("Gestionnaire => "+nom(gestionnaire));
         return affichage(animateur, secretaire, scribe, gestionnaire);
     }
     

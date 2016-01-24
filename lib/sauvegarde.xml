@@ -120,4 +120,22 @@
     <scribe>Quentin</scribe>
     <gestionnaire>Romuald</gestionnaire>
   </prosit>
+  <prosit classe="P21">
+    <animateur>Fabien</animateur>
+    <secretaire>Reynald</secretaire>
+    <scribe>Romain</scribe>
+    <gestionnaire>Eva</gestionnaire>
+  </prosit>
+  <prosit classe="P22">
+    <animateur>Romain</animateur>
+    <secretaire>Florent</secretaire>
+    <scribe>Reynald</scribe>
+    <gestionnaire>Paul</gestionnaire>
+  </prosit>
+  <prosit classe="P23">
+    <animateur>Florent</animateur>
+    <secretaire>Quentin</secretaire>
+    <scribe>Fabien</scribe>
+    <gestionnaire>Romain</gestionnaire>
+  </prosit>
 </personnes>

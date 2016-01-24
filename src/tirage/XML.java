@@ -266,7 +266,7 @@ public class XML {
         int i = 1;
         for (String s : data) {
             if(s.equals(nom)) {
-                return Integer.toString(i);
+                return Integer.toString(i-1);
             }
             i++;
         }
